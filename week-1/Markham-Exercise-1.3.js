@@ -1,9 +1,9 @@
 /*====================================
 ;Title: Exercise 1.3
-;Author: Peter Itskovich
-;Date: 23 April 2020
+;Author: Professor Krasso
+;Date: 23 April 2020        
 ;Modified by: Rochelle Markham
-;Description: 
+;Description: Modules
 ;=====================================
 */
 
