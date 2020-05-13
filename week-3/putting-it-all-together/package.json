@@ -1,0 +1,23 @@
+<!--
+/*
+============================================
+; Title: Assignment 3.4
+; Author: Professor Krasso
+; Date: May 13 2020
+; Modified By: Rochelle Markham
+; Description: Putting it all together
+;===========================================
+*/-->
+
+{
+    "name": "putting-it-all-together",
+    "author": "Professor Krasso",
+    "private": true,
+    "version": "0.0.1",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "ejs": "^3.1.2",
+        "express": "^4.17.1",
+        "morgan": "^1.10.0"
+    }
+}
