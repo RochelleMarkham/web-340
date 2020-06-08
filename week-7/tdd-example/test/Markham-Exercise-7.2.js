@@ -4,7 +4,7 @@
 ; Author: Professor Krasso
 ; Date: 7 June 2020
 ; Modified By: Rochelle Markham
-; Descripton: TDD in Action
+; Description: TDD in Action
 ========================================
 */
 
