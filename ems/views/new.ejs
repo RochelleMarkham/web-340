@@ -11,9 +11,31 @@
 
 <!DOCTYPE html>
 <html lang = "en">
-    <% include header %>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
     <body>
-        <% include navbar %>
+        <%- include ('header') -%>
+
+        <%- include ('navbar') -%>
+        <h2><%= message %></h2>
+        <form method="post" action="/process">
+            <div>
+                <label for="txtFirstName">First Name: </label>
+                <input type="text" id="txtFirstName" name="txtFirstName"/>
+            </div>
+            <div>
+                <label for="txtLastName">Last Name: </label>
+                <input type="text" id="txtLastName" name="txtLastName"/>
+            </div>
+            <div>
+                <!--CSURF token-->
+                <input name="_csurf" value="<%- ('csrfToken') -%>" type="hidden"/>
+                <button type="submit" class="button">Submit</button> 
+            </div>
+        </form>
+        <br/><br/>
+
+        <%- include ('footer') -%>
+        <%- include ('scripts') -%>
     </body>
-    <% include scripts %>
 </html>

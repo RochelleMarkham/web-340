@@ -72,6 +72,7 @@ footer{
     height: 62vh;
     min-width: 750px;
     min-height: 420px;
+    max-height: 880px;
 }
 
 a{
