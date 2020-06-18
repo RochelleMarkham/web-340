@@ -14,12 +14,10 @@
     <body>
         <%- include ('header') -%>
         <%- include ('navbar') -%>
-        <div role="main" class="container" style="width: 30%;">
-            <br/><br/>
+        <div role="main" id="container" style="width: 30%;">
             <% if (employees.length) { %>
             <h2>Current Employees</h2>
-            <br/>
-            <a href="/new">New Employee</a>
+            <a href="/new"><button class="button-sm">Add New Employee</button></a>
             <br/>
             <table class="table">
                 <thead>
@@ -29,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% employees.forEach(function (entry) { %>
+                    <% employees.forEach(function(entry) { %>
                     <tr>
                         <td><%= entry.firstName %></td>
                         <td><%= entry.lastName %></td>

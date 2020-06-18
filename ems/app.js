@@ -112,7 +112,8 @@ app.post("/process", function(request, response){
     console.log(empName)
     //create an employee model
     var employee = new Employee({
-      name: empName
+      firstName: request.body.txtFirstName,
+      lastName: request.body.txtLastName
     });
     //save
     employee.save(function(err){
