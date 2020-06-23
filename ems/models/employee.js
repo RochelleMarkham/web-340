@@ -13,13 +13,14 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 //defines the employee schema
-var empSchema = new Schema({
-    firstName: String,
-    lastName: String,
-});
+var EmployeeSchema = new Schema({
+    firstName: {type: String, required: true },
+    lastName: {type: String, required: true},
+    id: {type: String, required: true}
+  });
 
 //defines the employee module
-var Employee = mongoose.model("Employee", empSchema);
+var Employee = mongoose.model("Employee", EmployeeSchema);
 
 //allow the employee schema to be exported
 module.exports = Employee;

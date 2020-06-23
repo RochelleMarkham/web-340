@@ -7,3 +7,38 @@
 ; Description: Employee Records App
 ======================================
 --->
+
+<!DOCTYPE html>
+<html lang en="us">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+        <body>
+        <%- include ('header') -%>
+
+        <%- include ('navbar') -%>
+       
+        <div class="container">
+            <br/><br/>
+            <h2>Employee Details</h2>
+            <br/>
+            <div>
+                <div>
+                    <label for="txtName">Name:</label>
+                    <input
+                        type="text"
+                        id="txtName"
+                        readonly
+                        value="<%= employee[0].firstName %> <%= employee[0].lastName %>"
+                        name="txtName"/>
+                </div>
+            </div>
+            <br/><br/>
+            <a href="/">&larr; Return to Current Employees</a>
+        </div>
+
+
+        <%- include ('footer') -%>
+        <%- include ('scripts') -%>
+    </body>
+</html>     
+    

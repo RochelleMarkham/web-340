@@ -21,6 +21,7 @@ var cookieParser = require("cookie-parser");
 var csrf = require("csurf");
 var mongoose = require("mongoose");
 const Employee = require("./models/employee");
+const { response } = require("express");
 
 //mongoDB connection
 var mongoDB="mongodb+srv://RochelleMarkham:Camilla2008@buwebdev-cluster-1-yqegs.mongodb.net/test";
@@ -97,6 +98,24 @@ app.get("/list", function(request, response){
   });
 });
 
+app.get("/view/:queryName", function(request, response){
+  var queryName = request.params.queryName;
+  Employee.find({'id': queryName}, function(error, employees)
+  {
+    if (error) throw error;
+    console.log(employees);
+    if (employees.length >0){
+      response.render("view", {
+        title: "Employee Record", 
+        employee: employees
+      })
+    }
+    else{
+      response.redirect("/list")
+    }
+  });
+});
+
 //redirects the page after form submission
 app.post("/process", function(request, response){
     if(!request.body.txtFirstName){
@@ -107,27 +126,25 @@ app.post("/process", function(request, response){
       response.status(400).send("Entries must have a name");
       return;
     } 
-    //get request form data 
-    var empName = request.body.txtFirstName + " " + request.body.txtLastName;
-    console.log(empName)
-    //create an employee model
+
     var employee = new Employee({
       firstName: request.body.txtFirstName,
-      lastName: request.body.txtLastName
+      lastName: request.body.txtLastName,
+      id: request.body.txtID
     });
+
+
     //save
-    employee.save(function(err){
-      if (err){
-        console.log(err);
-        throw err;
-      } else {
-        console.log(empName + " saved successfully!");
-        response.redirect("/");
-      }
-    });
+    employee.save(function(error){
+      if (error)
+        throw error;
+        console.log("Save successful!"); 
+      });
+    response.redirect("/");
 });
 
 //creates a local server on port 8080 and prints message
-http.createServer(app).listen(8080, function(){
-    console.log("Application started on port 8080!");
+app.set("port", process.env.PORT || 8080);
+http.createServer(app).listen(app.get('port'), function() {
+  console.log("Application started on port " + app.get('port'));
 });
